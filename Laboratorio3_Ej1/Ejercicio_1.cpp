@@ -68,8 +68,6 @@ string bloque_codificado(const string& bloque_actual, const string& bloque_anter
     // Buscar la posición del primer '1' en el bloque actual
     size_t posicionPrimeraUno = bloque_actual.find('1');
 
-    // Si no hay '1', no hacemos nada
-    if (posicionPrimeraUno == string::npos) return bloque_nuevo;
 
     // Regla 1: Si hay igual cantidad de 0s y 1s, invertir todos los bits
        if (count0 == count1) {

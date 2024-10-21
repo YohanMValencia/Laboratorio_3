@@ -61,19 +61,17 @@ void contarBits(const string& bloque, size_t& count0, size_t& count1) {
 }
 
 // Aplica las reglas de decodificación para los bloques siguientes al primero
-string bloque_descodificado(const string& bloque_actual, const string& bloque_anterior_descodificado) {
+string bloque_descodificado(const string& bloque_actual, const string& bloque_anterior) {
     size_t count0 = 0, count1 = 0;
 
     // Contar cantidad de 1s y 0s en el bloque anterior descodificado
-    contarBits(bloque_anterior_descodificado, count0, count1);
+    contarBits(bloque_anterior, count0, count1);
 
     string bloque_nuevo = bloque_actual;
 
     // Buscar la posición del primer '1' en el bloque actual
     size_t posicionPrimeraUno = bloque_actual.find('1');
 
-    // Si no hay '1', no hacemos nada
-    if (posicionPrimeraUno == string::npos) return bloque_nuevo;
 
     // Regla inversa 1: Si hay igual cantidad de 0s y 1s, volver a invertir todos los bits
     if (count0 == count1) {
